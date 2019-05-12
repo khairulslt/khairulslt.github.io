@@ -1,6 +1,6 @@
 # Me blog
 
-- Visit [here :point left:](https://khairulslt.github.io)
+- Visit [Mu-An :point_left:](https://khairulslt.github.io)
 - A Jekyll & Github Pages-powered blog. 
 - Theme is Scribble by the amazing [Mu-An :point_left:](https://github.com/muan/scribble)
 
