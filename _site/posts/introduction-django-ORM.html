@@ -1,0 +1,172 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='An introduction to Django's ORM - Khairul Slt' name='title' />
+    <meta content='An introduction to Django's ORM - Khairul Slt' name='og:title' />
+    <title>An introduction to Django's ORM - Khairul Slt</title>
+    <link href='http://localhost:4000/images/fav.png' rel='shortcut icon'>
+<link href='http://localhost:4000/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost:4000/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='http://localhost:4000/posts/introduction-django-ORM' property='og:url' />
+  <meta content="At the start of 2019 I started working with Django, a Python Web framework.The nice thing about Django is that it com..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-164634484-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+      <a href="http://localhost:4000">
+        <img src="http://localhost:4000/images/scribble.png" alt="Home" width="53" height="59">
+      </a>
+      <p>Khairul Slt</p>
+    </header>
+    <div class="mw7 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1" href="http://localhost:4000/">
+             Posts
+           </a>
+        
+          <a class="link blue hover-mid-gray mh2 pv1" href="http://localhost:4000/about">
+             About me
+           </a>
+        
+          <a class="link blue hover-mid-gray mh2 pv1" href="http://localhost:4000/projects">
+             Projects
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">24 Apr 2019</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              An introduction to Django's ORM
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <p>At the start of 2019 I started working with <a href="https://www.djangoproject.com/" target="_blank">Django</a>, a Python Web framework.</p>
+
+<p>The nice thing about Django is that it comes with its own Object-Relational-Mapper (ORM) - meaning that you get to interact with your database in a nice Pythonical way instead of writing SQL queries. In short, its perfect for someone newer (like me) to learn the in’s-and-out’s of interacting with your database.</p>
+
+<p>Let’s look at a small example on creating an SQL Table called <strong>“Person”</strong> which will have two rows for its first and last name respectively.</p>
+
+<ol>
+  <li>
+<strong><u>Initializing an SQL database (without Django ORM)</u></strong>
+    <pre><code class="language-SQL"> CREATE TABLE myapp_person (
+   "id" serial NOT NULL PRIMARY KEY,
+   "first_name" varchar(30) NOT NULL,
+   "last_name" varchar(30) NOT NULL
+ );
+</code></pre>
+    <p>Assuming a basic SQLite3 database, your code would probably look something like the above.
+Seems lengthy? Yikes! Now, let’s take a look at achieving something similar using the Django ORM instead.</p>
+  </li>
+  <li>
+<strong><u>Initializing an SQL database (with Django ORM)</u></strong>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+ <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+     <span class="n">first_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+     <span class="n">last_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p>Much, much cleaner. As for more technical specifics, a CharField is defined as a string field that we can use to define the rows in our database (should it accept a string/integer/boolean? etcetc.) You can configure it according to your needs. 
+<br><br>Additionally, if you’re wondering where the <strong> id </strong>field went, Django automatically adds it for you! Check out the docs on <a href="https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-types" target="_blank">different field types</a> &amp; <a href="https://docs.djangoproject.com/en/2.2/topics/db/models/#automatic-primary-key-fields" target="_blank">automatic primary key fields</a></p>
+  </li>
+</ol>
+
+<hr>
+
+<p>Now that we’re happy with this database we’ve created, let’s take a look at how we would access it with another SQL vs ORM example! The following code selects all the fields available in our <strong>Person</strong> table.</p>
+
+<ol>
+  <li>
+<strong><u>Database querying (without Django ORM)</u></strong>
+    <pre><code class="language-SQL"> SELECT * FROM myapp_person;
+</code></pre>
+    <p><br></p>
+  </li>
+  <li>
+<strong><u>Database querying (with Django ORM)</u></strong>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="n">all_entries</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<hr>
+<p>Since we’ve gotten the non-exciting examples out of the way, let’s take a look at some possible code we would actually use in jobs that we get paid for.</p>
+
+<ol>
+  <li>
+<strong><u>Get object by ID (without Django ORM)</u></strong>
+    <pre><code class="language-SQL"> SELECT * FROM Person WHERE id = {}.format(id)
+</code></pre>
+    <p><br></p>
+  </li>
+  <li>
+<strong><u>Get object by ID (with Django ORM)</u></strong>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="n">obj</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">this_object_id</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p>Bonus points if you spot the SQL injection error above <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20"></p>
+  </li>
+</ol>
+
+<p>I try and follow as much discussion as I can online about the disadvantages of using Django’s ORM (unable to perform complex SQL queries, an ORM will never be an effective representation of the underlying data model, etcetc.)</p>
+
+<p>But for the most part, either I’m fortunate (or some might argue, unfortunate) that I haven’t come across any of the problems above in my daily work. So far, I haven’t found anything that I haven’t been able to achieve with this giant monolith.</p>
+
+<p>If you’re interested in my opinion, I subscribe to <a href="https://coffeeonthekeyboard.com/why-django-sucks-except-when-it-doesnt-664/" target="_blank">Why Django Sucks, Except When It Doesn’t</a>.</p>
+
+<p><strong>TLDR: While you’re arguing about what works and what doesn’t, someone already shipped the next Facebook with PHP</strong></p>
+
+        </div>
+        <p class="mt4">
+  Til next time,<br>
+  khairulslt
+  <span class="silver">at 23:27</span>
+</p>
+<img src="http://localhost:4000/images/scribble3.png" alt="scribble">
+
+      </main>
+      <section class="fixed-l mw7 center w-100 top-50 tc pb4 nt4">
+  
+  
+    <a href="http://localhost:4000/posts/dibs-on-docker" class="no-underline f1 light-blue hover-silver nr5 fr-l ph3">›</a>
+  
+</section>
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Built with Jekyll using <a href="http://github.com/muan/scribble" class="link silver hover-blue pv1">Scribble</a>.
+      <img src="http://localhost:4000/images/scribble2.png" alt="scribble" class="mt4 db center">
+    </footer>
+  </body>
+</html>

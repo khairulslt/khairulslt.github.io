@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Khairul Slt</title>
+    <description>Such theme, very cool.</description>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Dibs On Docker!</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/23735149/what-is-the-difference-between-a-docker-image-and-a-container?rq=1&quot; target=&quot;_blank&quot;&gt;Dockerfile vs Image vs Container&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR: Know your cakes&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 Oct 2019 18:21:11 +0800</pubDate>
+        <link>http://localhost:4000/posts/dibs-on-docker</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/dibs-on-docker</guid>
+      </item>
+    
+      <item>
+        <title>An introduction to Django's ORM</title>
+        <description>&lt;p&gt;At the start of 2019 I started working with &lt;a href=&quot;https://www.djangoproject.com/&quot; target=&quot;_blank&quot;&gt;Django&lt;/a&gt;, a Python Web framework.&lt;/p&gt;
+
+&lt;p&gt;The nice thing about Django is that it comes with its own Object-Relational-Mapper (ORM) - meaning that you get to interact with your database in a nice Pythonical way instead of writing SQL queries. In short, its perfect for someone newer (like me) to learn the in’s-and-out’s of interacting with your database.&lt;/p&gt;
+
+&lt;p&gt;Let’s look at a small example on creating an SQL Table called &lt;strong&gt;“Person”&lt;/strong&gt; which will have two rows for its first and last name respectively.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;u&gt;Initializing an SQL database (without Django ORM)&lt;/u&gt;&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt; CREATE TABLE myapp_person (
+   &quot;id&quot; serial NOT NULL PRIMARY KEY,
+   &quot;first_name&quot; varchar(30) NOT NULL,
+   &quot;last_name&quot; varchar(30) NOT NULL
+ );
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;Assuming a basic SQLite3 database, your code would probably look something like the above.
+Seems lengthy? Yikes! Now, let’s take a look at achieving something similar using the Django ORM instead.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;u&gt;Initializing an SQL database (with Django ORM)&lt;/u&gt;&lt;/strong&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Much, much cleaner. As for more technical specifics, a CharField is defined as a string field that we can use to define the rows in our database (should it accept a string/integer/boolean? etcetc.) You can configure it according to your needs. 
+&lt;br /&gt;&lt;br /&gt;Additionally, if you’re wondering where the &lt;strong&gt; id &lt;/strong&gt;field went, Django automatically adds it for you! Check out the docs on &lt;a href=&quot;https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-types&quot; target=&quot;_blank&quot;&gt;different field types&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://docs.djangoproject.com/en/2.2/topics/db/models/#automatic-primary-key-fields&quot; target=&quot;_blank&quot;&gt;automatic primary key fields&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Now that we’re happy with this database we’ve created, let’s take a look at how we would access it with another SQL vs ORM example! The following code selects all the fields available in our &lt;strong&gt;Person&lt;/strong&gt; table.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;u&gt;Database querying (without Django ORM)&lt;/u&gt;&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt; SELECT * FROM myapp_person;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;u&gt;Database querying (with Django ORM)&lt;/u&gt;&lt;/strong&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;all_entries&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Since we’ve gotten the non-exciting examples out of the way, let’s take a look at some possible code we would actually use in jobs that we get paid for.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;u&gt;Get object by ID (without Django ORM)&lt;/u&gt;&lt;/strong&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt; SELECT * FROM Person WHERE id = {}.format(id)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;u&gt;Get object by ID (with Django ORM)&lt;/u&gt;&lt;/strong&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;this_object_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Bonus points if you spot the SQL injection error above :ghost:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I try and follow as much discussion as I can online about the disadvantages of using Django’s ORM (unable to perform complex SQL queries, an ORM will never be an effective representation of the underlying data model, etcetc.)&lt;/p&gt;
+
+&lt;p&gt;But for the most part, either I’m fortunate (or some might argue, unfortunate) that I haven’t come across any of the problems above in my daily work. So far, I haven’t found anything that I haven’t been able to achieve with this giant monolith.&lt;/p&gt;
+
+&lt;p&gt;If you’re interested in my opinion, I subscribe to &lt;a href=&quot;https://coffeeonthekeyboard.com/why-django-sucks-except-when-it-doesnt-664/&quot; target=&quot;_blank&quot;&gt;Why Django Sucks, Except When It Doesn’t&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR: While you’re arguing about what works and what doesn’t, someone already shipped the next Facebook with PHP&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 24 Apr 2019 23:27:31 +0800</pubDate>
+        <link>http://localhost:4000/posts/introduction-django-ORM</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/introduction-django-ORM</guid>
+      </item>
+    
+  </channel>
+</rss>
