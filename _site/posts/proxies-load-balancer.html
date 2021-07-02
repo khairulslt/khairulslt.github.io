@@ -2,9 +2,9 @@
 <!doctype>
 <html lang="en">
   <head>
-    <meta content='Dibs On Docker! - Khairul Slt' name='title' />
-    <meta content='Dibs On Docker! - Khairul Slt' name='og:title' />
-    <title>Dibs On Docker! - Khairul Slt</title>
+    <meta content='On Proxies & Load Balancers - Khairul Slt' name='title' />
+    <meta content='On Proxies & Load Balancers - Khairul Slt' name='og:title' />
+    <title>On Proxies & Load Balancers - Khairul Slt</title>
     <link href='http://localhost:4000/images/fav.png' rel='shortcut icon'>
 <link href='http://localhost:4000/stylesheets/style.css' rel='stylesheet' type='text/css' />
 <link href='http://localhost:4000/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
@@ -12,8 +12,8 @@
 <meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
 <meta content='text/html; charset=utf-8' http-equiv='content-type' />
 
-  <meta content='http://localhost:4000/posts/dibs-on-docker' property='og:url' />
-  <meta content="Dockerfile vs Image vs Container.TLDR: Know your cakes" property='og:description' />
+  <meta content='http://localhost:4000/posts/proxies-load-balancer' property='og:url' />
+  <meta content="Benefits of Proxies (Proxies protect clients)1) proxies act as a shield, as a firewall that keeps all the bad stuff f..." property='og:description' />
   <meta content="article" property="og:type" />
 
 <!-- - -->
@@ -64,34 +64,41 @@
       <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
         
           <div class="mb4">
-            <div class="fw600 light-silver mt1">30 Oct 2019</div>
+            <div class="fw600 light-silver mt1">07 Mar 2021</div>
             <h1 class="ttu f3 mt0 lh-title cb mb2">
               
-              Dibs On Docker!
+              On Proxies & Load Balancers
             </h1>
             
           </div>
         
         <div class="markdown-body">
-          <p><a href="https://stackoverflow.com/questions/23735149/what-is-the-difference-between-a-docker-image-and-a-container?rq=1" target="_blank">Dockerfile vs Image vs Container</a>.</p>
+          <p>Benefits of Proxies (Proxies protect clients)
+1) proxies act as a shield, as a firewall that keeps all the bad stuff from the internet out of the intranet
+2) better management, multiple clients can talk to the same proxy. Proxy helps manage all the requests at one place and then pass it on to the outside world
+3) security, prevents phishing attacks
+4) performance via caching, say multiple clients are requesting for a static page from a website… once this particular request has been fetched from the server. you can store that static content on the proxy. Rather than going back through the internet and onto that website again, you can just fetch the static content from the proxy, saving bandwidth and improving performance
+5) encryption/decryption, when your client makes a request to a website (web server) through a proxy, the proxy hides your IP whether by changing it or decrypting it so the web server doesnt know where you are in the world. It can also encrypt your data so it is unreadable in transit. It also can block access to certain web pages based on IP address.</p>
 
-<p><strong>TLDR: Know your cakes</strong></p>
+<p>Benefits of Reverse Proxies (Reverse Proxies protect servers)</p>
+
+<p>Reverse Proxy Vs Load balancer
+Reverse proxy can be a load balancer as well
+but load balancer cannot be a reverse proxy</p>
 
         </div>
         <p class="mt4">
   Til next time,<br>
   khairulslt
-  <span class="silver">at 18:21</span>
+  <span class="silver">at 08:27</span>
 </p>
 <img src="http://localhost:4000/images/scribble3.png" alt="scribble" />
 
       </main>
       <section class="fixed-l mw7 center w-100 top-50 tc pb4 nt4">
   
-    <a href="http://localhost:4000/posts/introduction-django-ORM" class="no-underline f1 light-blue hover-silver nl5 fl-l ph3">‹</a>
+    <a href="http://localhost:4000/posts/dibs-on-docker" class="no-underline f1 light-blue hover-silver nl5 fl-l ph3">‹</a>
   
-  
-    <a href="http://localhost:4000/posts/proxies-load-balancer" class="no-underline f1 light-blue hover-silver nr5 fr-l ph3">›</a>
   
 </section>
     </div>
