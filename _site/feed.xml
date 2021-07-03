@@ -8,18 +8,55 @@
     
       <item>
         <title>On Proxies & Load Balancers</title>
-        <description>&lt;p&gt;Benefits of Proxies (Proxies protect clients)
-1) proxies act as a shield, as a firewall that keeps all the bad stuff from the internet out of the intranet
-2) better management, multiple clients can talk to the same proxy. Proxy helps manage all the requests at one place and then pass it on to the outside world
-3) security, prevents phishing attacks
-4) performance via caching, say multiple clients are requesting for a static page from a website… once this particular request has been fetched from the server. you can store that static content on the proxy. Rather than going back through the internet and onto that website again, you can just fetch the static content from the proxy, saving bandwidth and improving performance
-5) encryption/decryption, when your client makes a request to a website (web server) through a proxy, the proxy hides your IP whether by changing it or decrypting it so the web server doesnt know where you are in the world. It can also encrypt your data so it is unreadable in transit. It also can block access to certain web pages based on IP address.&lt;/p&gt;
+        <description>&lt;h2&gt;Proxy (Protects Clients)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+    Proxies act as a shield, as a firewall that keeps all the bad stuff from the internet out of the intranet
+&lt;/li&gt;
+&lt;li&gt;
+    Better management, multiple clients can talk to the same proxy. Proxy helps manage all the requests at one place and then pass it on to the outside world
+&lt;/li&gt;
+&lt;li&gt;
+    Security, prevents phishing attacks
+&lt;/li&gt;
+&lt;li&gt;
+    Performance via caching, say multiple clients are requesting for a static page from a website... once this particular request has been fetched from the server. you can store that static content on the proxy. Rather than going back through the internet and onto that website again, you can just fetch the static content from the proxy, saving bandwidth and improving performance
+&lt;/li&gt;
+&lt;li&gt;
+    Encryption/decryption, when your client makes a request to a website (web server) through a proxy, the proxy hides your IP whether by changing it or decrypting it so the web server doesnt know where you are in the world. It can also encrypt your data so it is unreadable in transit. It also can block access to certain web pages based on IP address.
+&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Benefits of Reverse Proxies (Reverse Proxies protect servers)&lt;/p&gt;
-
-&lt;p&gt;Reverse Proxy Vs Load balancer
-Reverse proxy can be a load balancer as well
-but load balancer cannot be a reverse proxy&lt;/p&gt;
+&lt;h2&gt;Reverse Proxy (Protects Servers)&lt;/h2&gt;
+&lt;p&gt;
+    Whereas deploying a load balancer makes sense only when you have multiple servers, it often makes sense to deploy a reverse proxy even with just one web server or application server. You can think of the reverse proxy as a website’s “public face.” Its address is the one advertised for the website, and it sits at the edge of the site’s network to accept requests from web browsers and mobile apps for the content hosted at the website. The benefits are two-fold:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+    Increased security – No information about your backend servers is visible outside your internal network, so malicious clients cannot access them directly to exploit any vulnerabilities. Many reverse proxy servers include features that help protect backend servers from &lt;a href=&quot;https://nginx.com/resources/glossary/what-is-distributed-denial-of-service/&quot; target=&quot;_blank&quot;&gt;distributed denial-of-service&lt;/a&gt; (DDoS) attacks, for example by rejecting traffic from particular client IP addresses (blacklisting), or limiting the number of connections accepted from each client.
+&lt;/li&gt;
+&lt;li&gt;
+    Increased scalability and flexibility – Because clients see only the reverse proxy’s IP address, you are free to change the configuration of your backend infrastructure. This is particularly useful In a load-balanced environment, where you can scale the number of servers up and down to match fluctuations in traffic volume.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    Another reason to deploy a reverse proxy is for &lt;a href=&quot;https://nginx.com/resources/glossary/web-acceleration/&quot; target=&quot;_blank&quot;&gt;web acceleration&lt;/a&gt; – reducing the time it takes to generate a response and return it to the client. Techniques for web acceleration include the following:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+    Compression
+    – Compressing server responses before returning them to the client (for instance, with &quot;&lt;code&gt;gzip&lt;/code&gt;&quot;) reduces the amount of bandwidth they require, which speeds their transit over the network.
+&lt;/li&gt;
+&lt;li&gt;
+    &lt;a href=&quot;https://www.nginx.com/resources/admin-guide/nginx-ssl-termination/&quot; target=&quot;_blank&quot;&gt;SSL termination&lt;/a&gt;
+    – Encrypting the traffic between clients and servers protects it as it crosses a public network like the Internet. But decryption and encryption can be computationally expensive. By decrypting incoming requests and encrypting server responses, the reverse proxy frees up resources on backend servers which they can then devote to their main purpose, serving content.
+&lt;/li&gt;
+&lt;li&gt;
+    &lt;a href=&quot;https://www.nginx.com/products/content-caching-nginx-plus/&quot; target=&quot;_blank&quot;&gt;Caching&lt;/a&gt;
+    – Before returning the backend server’s response to the client, the reverse proxy stores a copy of it locally. When the client (or any client) makes the same request, the reverse proxy can provide the response itself from the cache instead of forwarding the request to the backend server. This both decreases response time to the client and reduces the load on the backend server.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; Taken from the &lt;a href=&quot;https://www.nginx.com/resources/glossary/reverse-proxy-vs-load-balancer/&quot; target=&quot;_blank&quot;&gt;Nginx&lt;/a&gt; website&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 Mar 2021 08:27:31 +0800</pubDate>
         <link>http://localhost:4000/posts/proxies-load-balancer</link>
