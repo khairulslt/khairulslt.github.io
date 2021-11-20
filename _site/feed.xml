@@ -7,15 +7,6 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>AWS Static Site</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://medium.com/@aidan.hallett/how-to-set-up-a-static-website-with-ssl-tls-and-a-custom-domain-using-aws-s3-and-cloudfront-145be108b431&quot;&gt;How to setup a Static Website on AWS S3&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 07 Mar 2021 08:27:31 +0800</pubDate>
-        <link>http://localhost:4000/posts/static-site-on-aws</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/static-site-on-aws</guid>
-      </item>
-    
-      <item>
         <title>On Proxies & Load Balancers</title>
         <description>&lt;h2&gt;Proxy (Protects Clients)&lt;/h2&gt;
 &lt;ol&gt;
