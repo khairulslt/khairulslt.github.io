@@ -11,7 +11,7 @@ My partner came up with a great suggestion for me to discover the world and buil
 
 
 <ul>
-  <li>What is the activity?</li>
+  <li><strong>What is the activity?</strong></li>
   	<ol>
   		<li>
   			Check out a new place in Singapore <strong>(Kallang Stadium, I've never been there before, yeah me a local, can you believe that?)</strong><br> Since I decided to go there, I thought, "you know what why not just do a run and do it shirtless?" <strong>(yay go body positivity)</strong>
@@ -21,7 +21,7 @@ My partner came up with a great suggestion for me to discover the world and buil
 		</li>
 	</ol>
 	<br>
-  <li>Why do you choose this activity and why haven't you done it before?</li>
+  <li><strong>Why do you choose this activity and why haven't you done it before?</strong></li>
   	<ol>
 		<li>
   			Kallang Stadium was always near but it was never convenient to go to <strong>(20 minute walk/or by bus)</strong> and I never had a reason to go there <strong>(the gym already has everything i need)</strong><br>
@@ -31,7 +31,7 @@ My partner came up with a great suggestion for me to discover the world and buil
 		</li>
 	</ol>
 	<br>
-  <li>How does it make you feel?</li>
+  <li><strong>How does it make you feel?</strong></li>
 	<ol>
 		<li>
   			Little bit of adrenaline, got to see the more "polished/touristy" side of Singapore. Caught the sunset which I couldn't enjoy in the moment because I wanted to spend that moment with my partner Olena.<br>
@@ -41,7 +41,7 @@ My partner came up with a great suggestion for me to discover the world and buil
 		</li>
 	</ol>
 	<br>
-  <li>Would you do it again or would you do it with someone?</li>
+  <li><strong>Would you do it again or would you do it with someone?</strong></li>
   	<ol>
 		<li>
   			Alone? For Sure. With my partner Olena? Definitely even more so.<br>
